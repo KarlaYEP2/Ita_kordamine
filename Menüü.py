@@ -14,9 +14,9 @@ for i in fail:
         artist.append(info[0])
     if not info[1] in album:
         album.append(info[1])
-    albumid.append(Album(info[1], info[2], info[0])) #pealkiri, aasta, laulja
+    albumid.append(Album(info[1], info[2], info[0])) #pealkiri, aasta, laulja R//
 print(artist)
 print(albumid)
 fail.close()
 #ALBUM -> LAULUD[]
-#
+#laul klass albumi R//-ile
