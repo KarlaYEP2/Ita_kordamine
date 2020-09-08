@@ -19,3 +19,4 @@ print(artist)
 print(albumid)
 fail.close()
 #ALBUM -> LAULUD[]
+#
