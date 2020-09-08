@@ -17,4 +17,5 @@ for i in fail:
     albumid.append(Album(info[1], info[2], info[0])) #pealkiri, aasta, laulja
 print(artist)
 print(albumid)
-
+fail.close()
+#ALBUM -> LAULUD[]
