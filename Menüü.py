@@ -2,21 +2,27 @@ from album import Album
 from laul import Laul
 from laulja import Laulja
 
-albumid = []
-artist = []
-album = []
-test = []
+
+lauljate_nim = []
+Albumeid = []
+kontroll = []
 fail = open("albumid", encoding="UTF-8")
 for i in fail:
     info = i.strip().split("\t")
-    print(info)
-    if not info[0] in artist:
-        artist.append(info[0])
-    if not info[1] in album:
-        album.append(info[1])
-    albumid.append(Album(info[1], info[2], info[0])) #pealkiri, aasta, laulja R//
-print(artist)
-print(albumid)
+    if info[1] not in kontroll:
+        temp = Album(info[1], info[2], info[0])
+        Albumeid.append(temp)
+        kontroll.append(info[1])
+
+    lauljate_nim.append(Laul(info[3],info[0], info[1])) #pealkiri,laulja, album
 fail.close()
+for i in Albumeid:
+    for j in lauljate_nim:
+        if j.album and j.laulja  == i.pealkiri and i.laulja:
+            i.lisa_laul(j)
+
+
+print("s")
 #ALBUM -> LAULUD[]
-#laul klass albumi R//-ile
+#laul klass albumi
+#laul == album
