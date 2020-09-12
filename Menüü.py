@@ -57,7 +57,7 @@ elif Valik == "3":
     otsing = input("Leia nime järgi: ")
     for temp in Albumeid:
         for lauljate_nim in temp.laulud:
-            if otsing.lower() in lauljate_nim.pealkiri.lower():
+            if otsing.lower() in lauljate_nim.pealkiri.lower(): #MINGI STRINGI ERRORI TÕTTU LÜKKASIN LISAKS LOWERID
                 temp.lauljajanimi()
                 lauljate_nim.toopealkirjad()
 #VALIK 4
