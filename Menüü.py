@@ -6,6 +6,7 @@ from laulja import Laulja
 lauljate_nim = []
 Albumeid = []
 kontroll = []
+kontroll2 = []
 Lauljad = []
 fail = open("albumid", encoding="UTF-8")
 for i in fail: #VÕTAB FAILIST ASJAD VÄLJA JA PANEB INFOSSE
@@ -15,8 +16,14 @@ for i in fail: #VÕTAB FAILIST ASJAD VÄLJA JA PANEB INFOSSE
         Albumeid.append(temp)
         kontroll.append(info[1])
 
+    if info[0] not in kontroll2: #
+        laulja = Laulja(info[0])
+        Lauljad.append(laulja)
+        kontroll2.append(info[0])
+
+
     lauljate_nim.append(Laul(info[3], info[0], info[1])) #pealkiri,laulja, album LOETELU
-    Lauljad.append(Laulja(info[0]))#nimi LOETELU
+
 
 
 for i in Albumeid: #VAATAB, KUI KAKS ALMBUIT ON SAMAD LÜKKAVAD NAD LISA ASJU LOETELLUTE SISSE
@@ -57,7 +64,7 @@ elif Valik == "3":
     otsing = input("Leia nime järgi: ")
     for temp in Albumeid:
         for lauljate_nim in temp.laulud:
-            if otsing.lower() in lauljate_nim.pealkiri.lower(): #MINGI STRINGI ERRORI TÕTTU LÜKKASIN LISAKS LOWERID
+            if otsing.lower() in lauljate_nim.pealkiri.lower():  #MINGI STRINGI ERRORI TÕTTU LÜKKASIN LISAKS LOWERID
                 temp.lauljajanimi()
                 lauljate_nim.toopealkirjad()
 #VALIK 4
@@ -66,6 +73,4 @@ elif Valik == "4":
     for laulja in Lauljad:
         if otsing.lower() in laulja.nimi.lower():
             for temp in laulja.albumid:
-                temp.lauljajanimi()
-
-
+                print(temp.pealkiri, temp.aasta)
